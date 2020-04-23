@@ -1,8 +1,7 @@
-package entretien.main.valueObject;
+package main.esgi.ddd.model.creneau;
 
-import entretien.main.exceptions.CreneauInvalideException;
-import entretien.main.exceptions.DureeInvalideException;
-import entretien.main.entity.CreneauID;
+import main.esgi.ddd.exceptions.creneau.CreneauInvalideException;
+import main.esgi.ddd.exceptions.creneau.DureeInvalideException;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package entretien.main.exceptions;
+package main.esgi.ddd.exceptions.creneau;
 
 public class CreneauInvalideException extends RuntimeException {
 

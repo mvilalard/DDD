@@ -1,6 +1,6 @@
-package entretien.main.valueObject;
+package main.esgi.ddd.model.entretien;
 
-import entretien.main.entity.EntretienID;
+import main.esgi.ddd.model.creneau.Creneau;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package entretien.main.entity;
+package main.esgi.ddd.model.utils;
 
 import java.util.Objects;
 import java.util.UUID;

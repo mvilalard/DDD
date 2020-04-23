@@ -1,8 +1,8 @@
-package test.entretien;
+package test.creneau;
 
-import entretien.main.exceptions.CreneauInvalideException;
-import entretien.main.exceptions.DureeInvalideException;
-import entretien.main.valueObject.Creneau;
+import main.esgi.ddd.exceptions.creneau.CreneauInvalideException;
+import main.esgi.ddd.exceptions.creneau.DureeInvalideException;
+import main.esgi.ddd.model.creneau.Creneau;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
