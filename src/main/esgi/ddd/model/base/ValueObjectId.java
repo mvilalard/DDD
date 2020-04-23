@@ -1,4 +1,4 @@
-package main.esgi.ddd.model.utils;
+package main.esgi.ddd.model.base;
 
 import java.util.Objects;
 import java.util.UUID;
