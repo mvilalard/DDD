@@ -1,5 +1,7 @@
 package main.esgi.ddd.model.entretien;
 
+import main.esgi.ddd.model.candidat.Candidat;
+import main.esgi.ddd.model.consultantRecruteur.ConsultantRecruteur;
 import main.esgi.ddd.model.creneau.Creneau;
 
 import java.util.Objects;
@@ -10,7 +12,7 @@ public class Entretien {
         CREE,
         CONFIRME,
         ANNULE,
-        ENCOURS;
+        ENCOURS
     }
 
     private final EntretienID entretienID;
@@ -19,15 +21,15 @@ public class Entretien {
 
     private final Creneau creneau;
 
-    private final String recruteur;
+    private final ConsultantRecruteur consultantRecruteur;
 
-    private final String candidat;
+    private final Candidat candidat;
 
-    public Entretien(Creneau creneau, String recruteur, String candidat) {
+    public Entretien(Creneau creneau, ConsultantRecruteur consultantRecruteur, Candidat candidat) {
         this.entretienID = new EntretienID();
         this.statut = STATUT.CREE;
         this.creneau = creneau;
-        this.recruteur = recruteur;
+        this.consultantRecruteur = consultantRecruteur;
         this.candidat = candidat;
     }
 
@@ -53,11 +55,11 @@ public class Entretien {
         return creneau;
     }
 
-    public String getRecruteur() {
-        return recruteur;
+    public ConsultantRecruteur getConsultantRecruteur() {
+        return consultantRecruteur;
     }
 
-    public String getCandidat() {
+    public Candidat getCandidat() {
         return candidat;
     }
 
