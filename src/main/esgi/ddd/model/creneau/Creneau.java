@@ -26,7 +26,7 @@ public class Creneau {
         if(date.getDayOfWeek() == DayOfWeek.SATURDAY
                 || date.getDayOfWeek() == DayOfWeek.SUNDAY)
         {
-            throw new CreneauInvalideException("Créneau invalide : pas ²de créneau le week-end");
+            throw new CreneauInvalideException("Créneau invalide : pas de créneau le week-end");
         }
 
         if(date.getHour() < HEURE_MINIMALE || date.getHour()  > HEURE_MAXIMALE)
