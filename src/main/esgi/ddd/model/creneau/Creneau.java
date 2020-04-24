@@ -10,8 +10,8 @@ import java.util.Objects;
 public class Creneau {
 
     public static final int DUREE_MINIMUM = 0;
-    public static final int HEURE_MINIMALE = 8;
-    public static final int HEURE_MAXIMALE = 20;
+    public static final int DUREE_MAXIMALE = 180;
+    public static final int HEURE_MINIMALE = 18;
     private final CreneauID creneauID;
 
     private final LocalDateTime date;
@@ -29,9 +29,9 @@ public class Creneau {
             throw new CreneauInvalideException("Créneau invalide : pas de créneau le week-end");
         }
 
-        if(date.getHour() < HEURE_MINIMALE || date.getHour()  > HEURE_MAXIMALE)
+        if(date.getHour() < HEURE_MINIMALE)
         {
-            throw new CreneauInvalideException("Créneau invalide : pas de rdv avant 8h et après 20h");
+            throw new CreneauInvalideException("Créneau invalide : pas de rdv avant 18h");
         }
 
         this.date = date;
@@ -39,6 +39,11 @@ public class Creneau {
         if(duree <= DUREE_MINIMUM)
         {
             throw new DureeInvalideException("Durée invalide : inférieure ou égale à 0");
+        }
+
+        if(duree > DUREE_MAXIMALE)
+        {
+            throw new DureeInvalideException("Durée invalide : supérieur à 0");
         }
 
         this.dateDebut = date;
