@@ -1,6 +1,5 @@
-package main.esgi.ddd.model.creneau;
+package main.esgi.ddd.model.entretien;
 
-import main.esgi.ddd.common.entity.Entity;
 import main.esgi.ddd.exceptions.creneau.CreneauInvalideException;
 import main.esgi.ddd.exceptions.creneau.DureeInvalideException;
 
@@ -8,7 +7,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Creneau extends Entity {
+public class Creneau{
 
     public static final int DUREE_MINIMUM = 0;
     public static final int DUREE_MAXIMALE = 180;
@@ -21,8 +20,6 @@ public class Creneau extends Entity {
     private final LocalDateTime dateFin;
 
     public Creneau(LocalDateTime date, long duree) {
-        super(new CreneauID());
-
         if(date.getDayOfWeek() == DayOfWeek.SATURDAY
                 || date.getDayOfWeek() == DayOfWeek.SUNDAY)
         {

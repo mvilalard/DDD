@@ -2,7 +2,7 @@ package test.creneau;
 
 import main.esgi.ddd.exceptions.creneau.CreneauInvalideException;
 import main.esgi.ddd.exceptions.creneau.DureeInvalideException;
-import main.esgi.ddd.model.creneau.Creneau;
+import main.esgi.ddd.model.entretien.Creneau;
 import org.junit.Test;
 
 import java.time.LocalDateTime;

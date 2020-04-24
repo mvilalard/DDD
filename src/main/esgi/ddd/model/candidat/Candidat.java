@@ -3,6 +3,7 @@ package main.esgi.ddd.model.candidat;
 import main.esgi.ddd.common.entity.Entity;
 import main.esgi.ddd.model.profil.Profil;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Candidat extends Entity {
@@ -17,13 +18,16 @@ public class Candidat extends Entity {
 
     private final Profil profil;
 
-    public Candidat(String prenom, String nom, int age, String mail, Profil profil) {
+    private final LocalDate disponibilite;
+
+    public Candidat(String prenom, String nom, int age, String mail, Profil profil, LocalDate disponibilite) {
         super(new CandidatID());
         this.prenom = prenom;
         this.nom = nom;
         this.age = age;
         this.mail = mail;
         this.profil = profil;
+        this.disponibilite = disponibilite;
     }
 
     public String getPrenom() {
