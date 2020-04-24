@@ -1,6 +1,7 @@
 package main.esgi.ddd.model.consultantRecruteur;
 
 import main.esgi.ddd.common.entity.Entity;
+import main.esgi.ddd.exceptions.consultantRecruteur.*;
 import main.esgi.ddd.model.entretien.Entretien;
 
 import java.time.LocalDate;
@@ -28,8 +29,23 @@ public class ConsultantRecruteur extends Entity {
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
+        if(anneesXP < 5) {
+            throw new ExperienceInvalideException();
+        }
         this.anneesXP = anneesXP;
+        if(technosMaitrisees == null) {
+            throw new TechnosMaitriseesNullException();
+        }
+        if(technosMaitrisees.isEmpty()) {
+            throw new TechnosMaitriseesVideException();
+        }
         this.technosMaitrisees = technosMaitrisees;
+        if(disponibilites == null) {
+            throw new DisponibilitesNullException();
+        }
+        if(disponibilites.isEmpty()) {
+            throw new DisponibilitesVideException();
+        }
         this.disponibilites = disponibilites;
     }
     public String getNom() {
