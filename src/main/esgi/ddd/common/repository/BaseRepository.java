@@ -5,7 +5,7 @@ import main.esgi.ddd.common.valueObjectId.ValueObjectId;
 
 import java.util.HashSet;
 
-public class BaseRepository implements IRepository {
+public abstract class BaseRepository implements IRepository {
 
     HashSet<Entity> entities;
 
