@@ -1,7 +1,6 @@
 package main.esgi.ddd.model.profil;
 
 import main.esgi.ddd.common.entity.Entity;
-import main.esgi.ddd.model.creneau.ProfilID;
 
 import java.util.HashSet;
 import java.util.Objects;

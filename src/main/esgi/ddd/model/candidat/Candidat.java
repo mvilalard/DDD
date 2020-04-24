@@ -1,6 +1,7 @@
 package main.esgi.ddd.model.candidat;
 
 import main.esgi.ddd.common.entity.Entity;
+import main.esgi.ddd.model.consultantRecruteur.ConsultantRecruteur;
 import main.esgi.ddd.model.profil.Profil;
 
 import java.time.LocalDate;
@@ -20,7 +21,11 @@ public class Candidat extends Entity {
 
     private final LocalDate disponibilite;
 
-    public Candidat(String prenom, String nom, int age, String mail, Profil profil, LocalDate disponibilite) {
+    private final int anneesXp;
+
+    public Candidat(String prenom, String nom, int age, String mail,
+                    Profil profil, LocalDate disponibilite,
+                    int anneesXp) {
         super(new CandidatID());
         this.prenom = prenom;
         this.nom = nom;
@@ -28,6 +33,7 @@ public class Candidat extends Entity {
         this.mail = mail;
         this.profil = profil;
         this.disponibilite = disponibilite;
+        this.anneesXp = anneesXp;
     }
 
     public String getPrenom() {
@@ -48,6 +54,19 @@ public class Candidat extends Entity {
 
     public Profil getProfil() {
         return profil;
+    }
+
+    public LocalDate getDisponibilite() {
+        return disponibilite;
+    }
+
+    public int getAnneesXp() {
+        return anneesXp;
+    }
+
+    public boolean canBeTested(ConsultantRecruteur recruteur) {
+        return recruteur.getTechnosMaitrisees().containsAll(this.profil.getTechnosMaitrisees())
+                && recruteur.getAnneesXP() > this.anneesXp;
     }
 
     @Override

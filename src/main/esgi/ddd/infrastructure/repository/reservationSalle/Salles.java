@@ -5,13 +5,13 @@ import main.esgi.ddd.common.repository.BaseRepository;
 
 import java.util.HashSet;
 
-public class ReservationSalleRepository  extends BaseRepository {
+public class Salles extends BaseRepository implements SalleRepository {
 
-    public ReservationSalleRepository(HashSet<Entity> reservations) {
+    public Salles(HashSet<Entity> reservations) {
         super(reservations);
     }
 
-    public ReservationSalleRepository() {
+    public Salles() {
         this(new HashSet<Entity>());
     }
 }

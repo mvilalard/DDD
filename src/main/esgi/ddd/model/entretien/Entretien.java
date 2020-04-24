@@ -6,7 +6,7 @@ import main.esgi.ddd.exceptions.entretien.EntretienNonConfirmeException;
 import main.esgi.ddd.exceptions.entretien.ReservationSalleIndefinieException;
 import main.esgi.ddd.model.candidat.CandidatID;
 import main.esgi.ddd.model.consultantRecruteur.ConsultantRecruteurID;
-import main.esgi.ddd.model.reservationSalle.ReservationSalleID;
+import main.esgi.ddd.model.salle.SalleID;
 
 import java.util.Objects;
 
@@ -15,6 +15,7 @@ public class Entretien extends Entity {
     enum STATUT {
         CREE,
         CONFIRME,
+        PLANIFIE,
         ANNULE,
         ENCOURS;
     }
@@ -22,7 +23,7 @@ public class Entretien extends Entity {
 
     private final Creneau creneau;
 
-    private ReservationSalleID reservationSalleID ;
+    private SalleID salleID ;
 
     private CandidatID candidatID;
 
@@ -32,14 +33,14 @@ public class Entretien extends Entity {
         super(new EntretienID());
         this.statut = STATUT.CREE;
         this.creneau = creneau;
-        this.reservationSalleID = null;
+        this.salleID = null;
         this.candidatID = candidatID;
         this.consultantRecruteurID = null;
     }
 
     public void confirmer()
     {
-        if (this.reservationSalleID == null) {
+        if (this.salleID == null) {
             throw new ReservationSalleIndefinieException();
         }
         if (this.consultantRecruteurID == null) {
@@ -59,7 +60,7 @@ public class Entretien extends Entity {
         this.statut = STATUT.ENCOURS;
     }
 
-    public void annuler(String raison)
+    public void annuler()
     {
         if(this.statut != STATUT.CONFIRME) {
             throw new EntretienNonConfirmeException();
@@ -75,12 +76,12 @@ public class Entretien extends Entity {
         return creneau;
     }
 
-    public ReservationSalleID getReservationSalleID() {
-        return reservationSalleID;
+    public SalleID getSalleID() {
+        return salleID;
     }
 
-    public void setReservationSalleID(ReservationSalleID reservationSalleID) {
-        this.reservationSalleID = reservationSalleID;
+    public void setSalleID(SalleID reservationSalleID) {
+        this.salleID = reservationSalleID;
     }
 
     public CandidatID getCandidatID() {
@@ -99,8 +100,12 @@ public class Entretien extends Entity {
         this.consultantRecruteurID = consultantRecruteurID;
     }
 
+    public void plannifier() {
+        this.statut = STATUT.PLANIFIE;
+    }
+
     @Override
     public int hashCode() {
-        return Objects.hash(statut, creneau, reservationSalleID, candidatID, consultantRecruteurID);
+        return Objects.hash(statut, creneau, salleID, candidatID, consultantRecruteurID);
     }
 }
