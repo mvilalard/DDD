@@ -6,7 +6,6 @@ import main.esgi.ddd.exceptions.entretien.EntretienNonConfirmeException;
 import main.esgi.ddd.exceptions.entretien.ReservationSalleIndefinieException;
 import main.esgi.ddd.model.candidat.CandidatID;
 import main.esgi.ddd.model.consultantRecruteur.ConsultantRecruteurID;
-import main.esgi.ddd.model.creneau.Creneau;
 import main.esgi.ddd.model.reservationSalle.ReservationSalleID;
 
 import java.util.Objects;
