@@ -69,8 +69,7 @@ public class Creneau {
             return false;
 
         Creneau creneau = (Creneau) o;
-        return Objects.equals(dateDebut, creneau.dateDebut) &&
-                Objects.equals(dateFin, creneau.dateFin);
+        return creneauID.equals(creneau.creneauID);
     }
 
     @Override
