@@ -1,12 +1,11 @@
 package main.esgi.ddd.model.candidat;
 
+import main.esgi.ddd.common.entity.Entity;
 import main.esgi.ddd.model.profil.Profil;
 
 import java.util.Objects;
 
-public class Candidat {
-
-    private final CandidatID candidatID;
+public class Candidat extends Entity {
 
     private final String prenom;
 
@@ -19,16 +18,12 @@ public class Candidat {
     private final Profil profil;
 
     public Candidat(String prenom, String nom, int age, String mail, Profil profil) {
-        this.candidatID = new CandidatID();
+        super(new CandidatID());
         this.prenom = prenom;
         this.nom = nom;
         this.age = age;
         this.mail = mail;
         this.profil = profil;
-    }
-
-    public CandidatID getCandidatID() {
-        return candidatID;
     }
 
     public String getPrenom() {
@@ -52,17 +47,7 @@ public class Candidat {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        Candidat candidat = (Candidat) o;
-        return candidatID.equals(candidat.candidatID);
-    }
-
-    @Override
     public int hashCode() {
-        return Objects.hash(candidatID);
+        return Objects.hash(prenom, nom, age, mail, profil);
     }
 }

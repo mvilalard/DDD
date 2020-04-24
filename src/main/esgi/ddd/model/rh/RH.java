@@ -1,10 +1,10 @@
 package main.esgi.ddd.model.rh;
 
+import main.esgi.ddd.common.entity.Entity;
+
 import java.util.Objects;
 
-public class RH {
-
-    private final RhID rhID;
+public class RH extends Entity{
 
     private final String nom;
 
@@ -13,14 +13,10 @@ public class RH {
     private final String mail;
 
     public RH(String nom, String prenom, String mail) {
-        this.rhID = new RhID();
+        super(new RhID());
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
-    }
-
-    public RhID getRhID() {
-        return rhID;
     }
 
     public String getNom() {
@@ -36,17 +32,7 @@ public class RH {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        RH RH = (RH) o;
-        return rhID.equals(RH.rhID);
-    }
-
-    @Override
     public int hashCode() {
-        return Objects.hash(rhID);
+        return Objects.hash(nom, prenom, mail);
     }
 }

@@ -1,5 +1,6 @@
 package main.esgi.ddd.model.creneau;
 
+import main.esgi.ddd.common.entity.Entity;
 import main.esgi.ddd.exceptions.creneau.CreneauInvalideException;
 import main.esgi.ddd.exceptions.creneau.DureeInvalideException;
 
@@ -7,12 +8,11 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Creneau {
+public class Creneau extends Entity {
 
     public static final int DUREE_MINIMUM = 0;
     public static final int DUREE_MAXIMALE = 180;
     public static final int HEURE_MINIMALE = 18;
-    private final CreneauID creneauID;
 
     private final LocalDateTime date;
 
@@ -21,7 +21,7 @@ public class Creneau {
     private final LocalDateTime dateFin;
 
     public Creneau(LocalDateTime date, long duree) {
-        this.creneauID = new CreneauID();
+        super(new CreneauID());
 
         if(date.getDayOfWeek() == DayOfWeek.SATURDAY
                 || date.getDayOfWeek() == DayOfWeek.SUNDAY)
@@ -50,10 +50,6 @@ public class Creneau {
         this.dateFin = this.dateDebut.plusMinutes(duree);
     }
 
-    public CreneauID getCreneauID() {
-        return creneauID;
-    }
-
     public LocalDateTime getDate() {
         return date;
     }
@@ -67,18 +63,7 @@ public class Creneau {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-
-        Creneau creneau = (Creneau) o;
-        return creneauID.equals(creneau.creneauID);
-    }
-
-    @Override
     public int hashCode() {
-        return Objects.hash(dateDebut, dateFin);
+        return Objects.hash(date, dateDebut, dateFin);
     }
 }

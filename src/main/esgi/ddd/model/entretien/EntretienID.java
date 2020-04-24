@@ -1,6 +1,6 @@
 package main.esgi.ddd.model.entretien;
 
-import main.esgi.ddd.model.base.ValueObjectId;
+import main.esgi.ddd.common.valueObjectId.ValueObjectId;
 
 public class EntretienID extends ValueObjectId {
 

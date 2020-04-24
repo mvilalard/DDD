@@ -1,36 +1,17 @@
 package main.esgi.ddd.infrastructure.repository.candidat;
 
-import main.esgi.ddd.model.candidat.Candidat;
-import main.esgi.ddd.model.candidat.CandidatID;
+import main.esgi.ddd.common.entity.Entity;
+import main.esgi.ddd.common.repository.BaseRepository;
 
 import java.util.HashSet;
 
-public class CandidatRepository {
+public class CandidatRepository extends BaseRepository {
 
-    private HashSet<Candidat> candidats;
-
-    public CandidatRepository(HashSet<Candidat> candidats) {
-        this.candidats = candidats;
+    public CandidatRepository(HashSet<Entity> candidats) {
+        super(candidats);
     }
 
     public CandidatRepository() {
-        this(new HashSet<>());
-    }
-
-    public void addCandidat(Candidat candidat) {
-        this.candidats.add(candidat);
-    }
-
-    public void removeCandidat(Candidat candidat){
-        this.candidats.remove(candidat);
-    }
-
-    public Candidat getCandidat(CandidatID id) {
-        for (Candidat candidat : candidats) {
-            if(candidat.getCandidatID() == id) {
-                return candidat;
-            }
-        }
-        return null;
+        this(new HashSet<Entity>());
     }
 }

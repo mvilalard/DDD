@@ -1,12 +1,11 @@
 package main.esgi.ddd.model.consultantRecruteur;
 
+import main.esgi.ddd.common.entity.Entity;
 import main.esgi.ddd.model.entretien.Entretien;
 
 import java.util.Objects;
 
-public class ConsultantRecruteur {
-
-    private final ConsultantRecruteurID consultantRecruteurID;
+public class ConsultantRecruteur extends Entity {
 
     private final String nom;
 
@@ -17,17 +16,12 @@ public class ConsultantRecruteur {
     private int anneesXP;
 
     public ConsultantRecruteur(String nom, String prenom, String mail, int anneesXP) {
-        this.consultantRecruteurID = new ConsultantRecruteurID();
+        super(new ConsultantRecruteurID());
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;
         this.anneesXP = anneesXP;
     }
-
-    public ConsultantRecruteurID getConsultantRecruteurID() {
-        return consultantRecruteurID;
-    }
-
     public String getNom() {
         return nom;
     }
@@ -45,21 +39,11 @@ public class ConsultantRecruteur {
     }
 
     public void participerEntretien(Entretien entretien) {
-        entretien.setConsultantRecruteurID(consultantRecruteurID);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        ConsultantRecruteur consultantRecruteur = (ConsultantRecruteur) o;
-        return consultantRecruteurID.equals(consultantRecruteur.consultantRecruteurID);
+        entretien.setConsultantRecruteurID((ConsultantRecruteurID) this.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(consultantRecruteurID);
+        return Objects.hash(nom, prenom, mail, anneesXP);
     }
 }

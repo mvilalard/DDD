@@ -1,5 +1,6 @@
 package main.esgi.ddd.model.entretien;
 
+import main.esgi.ddd.common.entity.Entity;
 import main.esgi.ddd.exceptions.entretien.ConsultantRecruteurIndefinieException;
 import main.esgi.ddd.exceptions.entretien.EntretienNonConfirmeException;
 import main.esgi.ddd.exceptions.entretien.ReservationSalleIndefinieException;
@@ -10,7 +11,7 @@ import main.esgi.ddd.model.reservationSalle.ReservationSalleID;
 
 import java.util.Objects;
 
-public class Entretien {
+public class Entretien extends Entity {
     
     enum STATUT {
         CREE,
@@ -18,9 +19,6 @@ public class Entretien {
         ANNULE,
         ENCOURS;
     }
-
-    private final EntretienID entretienID;
-
     private STATUT statut;
 
     private final Creneau creneau;
@@ -32,7 +30,7 @@ public class Entretien {
     private ConsultantRecruteurID consultantRecruteurID;
 
     public Entretien(Creneau creneau, CandidatID candidatID) {
-        this.entretienID = new EntretienID();
+        super(new EntretienID());
         this.statut = STATUT.CREE;
         this.creneau = creneau;
         this.reservationSalleID = null;
@@ -70,10 +68,6 @@ public class Entretien {
         this.statut = STATUT.ANNULE;
     }
 
-    public EntretienID getEntretienID() {
-        return entretienID;
-    }
-
     public STATUT getStatut() {
         return statut;
     }
@@ -107,17 +101,7 @@ public class Entretien {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        Entretien entretien = (Entretien) o;
-        return entretienID.equals(entretien.entretienID);
-    }
-
-    @Override
     public int hashCode() {
-        return Objects.hash(entretienID);
+        return Objects.hash(statut, creneau, reservationSalleID, candidatID, consultantRecruteurID);
     }
 }
