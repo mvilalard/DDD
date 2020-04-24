@@ -10,7 +10,7 @@ public class BaseRepository {
     private HashSet<Entity> entities;
 
     public BaseRepository(HashSet<Entity> entities) {
-        this.entities = this.entities;
+        this.entities = entities;
     }
 
     public BaseRepository() {
