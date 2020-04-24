@@ -1,5 +1,7 @@
 package main.esgi.ddd.model.consultantRecruteur;
 
+import main.esgi.ddd.model.entretien.Entretien;
+
 import java.util.Objects;
 
 public class ConsultantRecruteur {
@@ -40,6 +42,10 @@ public class ConsultantRecruteur {
 
     public int getAnneesXP() {
         return anneesXP;
+    }
+
+    public void participerEntretien(Entretien entretien) {
+        entretien.setConsultantRecruteurID(consultantRecruteurID);
     }
 
     @Override
