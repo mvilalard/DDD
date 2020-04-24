@@ -13,15 +13,15 @@ public class Profil {
 
     private final HashSet<String> specialites;
 
-    private final HashSet<String> technosMaintrises;
+    private final HashSet<String> technosMaitrisees;
 
     private final HashSet<String> softSkills;
 
-    public Profil(int anneesXP, HashSet<String> specialites, HashSet<String> technosMaintrises, HashSet<String> softSkills) {
+    public Profil(int anneesXP, HashSet<String> specialites, HashSet<String> technosMaitrisees, HashSet<String> softSkills) {
         this.profilID = new ProfilID();
         this.anneesXP = anneesXP;
         this.specialites = specialites;
-        this.technosMaintrises = technosMaintrises;
+        this.technosMaitrisees = technosMaitrisees;
         this.softSkills = softSkills;
     }
 
@@ -41,8 +41,8 @@ public class Profil {
         return specialites;
     }
 
-    public HashSet<String> getTechnosMaintrises() {
-        return technosMaintrises;
+    public HashSet<String> getTechnosMaitrisees() {
+        return technosMaitrisees;
     }
 
     public HashSet<String> getSoftSkills() {
@@ -54,7 +54,7 @@ public class Profil {
     }
 
     public void addTechnoMaintrisee(String technoMaintrisee) {
-        this.technosMaintrises.add(technoMaintrisee);
+        this.technosMaitrisees.add(technoMaintrisee);
     }
 
     public void addSoftSkill(String softSkill) {
